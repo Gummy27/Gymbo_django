@@ -1,0 +1,19 @@
+body {
+    background-color: #1f2428 !important;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    font-size: 20px;
+    padding: 20px 0;
+    background-color: #f5c000;
+}
+
+.main-content {
+    min-height: 85vh;
+    color: white;
+}

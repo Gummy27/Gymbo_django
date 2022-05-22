@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+    <link href={% static 'css/exercises.css' %} rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <div class="exercises">
+    {% for exercise in exercises %}
+        <a href="{% url 'detailed' exercise.id %}" class="exercise-thumbnail">
+            <img src="https://workmacro.com/wp-content/uploads/2018/02/1-by-1-1024x1024.png" alt="">
+            <p>{{ exercise.name }}</p>
+        </a>
+    {% endfor %}
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        <button class="gummi-button exercise-end-button">End</button>
+    </form>
+{% endblock %}

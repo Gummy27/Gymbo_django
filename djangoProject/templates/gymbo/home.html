@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+    <link href={% static 'css/home.css' %} rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <div class="home">
+        <div class="home-button">
+            <form method="post">
+                {% csrf_token %}
+                <button class="gummi-button">Byrja æfingu</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

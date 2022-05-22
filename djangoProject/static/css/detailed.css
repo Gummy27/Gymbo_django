@@ -1,0 +1,39 @@
+.detailed {
+    padding: 30px;
+}
+
+.detailed-title {
+    text-align: center;
+}
+
+.detailed-max {
+    display: flex;
+    justify-content: space-between;
+}
+
+.detailed-session {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    font-size: 20px;
+    padding-bottom: 50px;
+}
+
+.detailed-button {
+    position: fixed;
+    width: 40%;
+    height: 50px;
+    bottom: 3%;
+}
+
+.detailed-button-1 {
+    right: 5%;
+}
+
+.detailed-button-2 {
+    left: 5%;
+}
+
+.detailed-modal {
+    background-color: #1f2428;
+}

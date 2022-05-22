@@ -1,0 +1,26 @@
+.home {
+    text-align: center;
+    min-height: 85vh;
+    position: relative;
+    justify-content: center;
+}
+
+.home-button {
+    margin: 0;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    -ms-transform: translateY(-40%);
+    transform: translateY(-40%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 70%;
+}
+
+.home-button button {
+    font-size: 40px;
+}
+
+.home-button button:active {
+    background-color: #a39214;
+}
