@@ -74,7 +74,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'djangoProject.wsgi.application'
 
-CSRF_TRUSTED_ORIGINS = ["https://gymbo.herokuapp.com/"]
+CSRF_TRUSTED_ORIGINS = ["https://gymbo.herokuapp.com"]
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
