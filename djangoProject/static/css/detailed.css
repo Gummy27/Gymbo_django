@@ -4,9 +4,11 @@
 
 .detailed-title {
     text-align: center;
+    font-size: 10vw;
 }
 
 .detailed-max {
+    font-size: 9vw;
     display: flex;
     justify-content: space-between;
 }
@@ -15,14 +17,14 @@
     display: flex;
     justify-content: space-between;
     padding-top: 20px;
-    font-size: 20px;
+    font-size: 8vw;
     padding-bottom: 50px;
 }
 
 .detailed-button {
     position: fixed;
     width: 40%;
-    height: 50px;
+    height: 5vh;
     bottom: 3%;
 }
 
@@ -35,5 +37,6 @@
 }
 
 .detailed-modal {
+    color: red;
     background-color: #1f2428;
 }

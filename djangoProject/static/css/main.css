@@ -8,12 +8,13 @@ body {
     justify-content: center;
     text-align: center;
     width: 100%;
-    font-size: 20px;
-    padding: 20px 0;
+    height: 8vh;
+    font-size: 8vw;
     background-color: #f5c000;
 }
 
 .main-content {
     min-height: 85vh;
     color: white;
+    font-size: 5vw;
 }
