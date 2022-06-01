@@ -5,11 +5,6 @@ from django.contrib.auth.models import User
 from datetime import datetime
 
 
-class UserSessionManager(models.Manager):
-    def get_queryset(self):
-        return super().get_queryset().filter(user_id=self.request.user)
-
-
 # Create your models here.
 class Session(models.Model):
     date_started = models.DateTimeField()
@@ -50,8 +45,28 @@ class Session(models.Model):
             return None
 
 
+class Force(models.Model):
+    name = models.CharField(max_length=100)
+
+
+class Equipment(models.Model):
+    name = models.CharField(max_length=100)
+
+
+class Muscle(models.Model):
+    name = models.CharField(max_length=100)
+
+
 class Exercise(models.Model):
     name = models.CharField(max_length=100)
+    force = models.ForeignKey(Force, on_delete=models.CASCADE, null=True, blank=True)
+    equipment = models.ForeignKey(Equipment, on_delete=models.CASCADE, null=True, blank=True)
+
+
+class ExerciseMuscle(models.Model):
+    primary = models.BooleanField(default=False)
+    exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE)
+    muscle = models.ForeignKey(Muscle, on_delete=models.CASCADE)
 
 
 class SessionExercise(models.Model):
