@@ -14,7 +14,6 @@ class Session(models.Model):
     @classmethod
     def get_active(cls):
         try:
-            print("This is the yes", Session.objects.all())
             return Session.objects.filter(date_ended__isnull=True)[0]
         except IndexError:
             return None
@@ -61,6 +60,14 @@ class Exercise(models.Model):
     name = models.CharField(max_length=100)
     force = models.ForeignKey(Force, on_delete=models.CASCADE, null=True, blank=True)
     equipment = models.ForeignKey(Equipment, on_delete=models.CASCADE, null=True, blank=True)
+
+    def get_secondary_muscles(self):
+        joiner = ExerciseMuscle.objects.filter(exercise_id__exact=self.id)
+        print(joiner)
+
+    @classmethod
+    def get_primary_muscle(cls):
+        pass
 
 
 class ExerciseMuscle(models.Model):

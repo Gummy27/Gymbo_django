@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
 
-from .models import Exercise, SessionExercise, Session
+from .models import Exercise, SessionExercise, Session, ExerciseMuscle, Muscle
 from .forms import SetForm
 
 
@@ -19,12 +19,15 @@ def home(request):
 
 def exercises(request):
     if request.method == 'POST':
-        Session.end()
-        return redirect('home')
+        if 'submit-search' in request.POST:
+            exercises = Exercise.objects.filter(name__icontains=request.POST.get('search-field'))
+        else:
+            Session.end()
+            return redirect('home')
+    else:
+        exercises = Exercise.objects.all()
 
-    all_exercises = Exercise.objects.all()
-
-    return render(request, 'gymbo/exercises.html', context={'exercises': all_exercises})
+    return render(request, 'gymbo/exercises.html', context={'exercises': exercises})
 
 
 def detailed(request, exercise_id):
@@ -40,7 +43,8 @@ def detailed(request, exercise_id):
 
     form = SetForm()
 
-    print("This ist he user", request.user)
+    exercise.get_secondary_muscles()
+
     return render(request, 'gymbo/detailed.html', context= {
         'exercise': exercise,
         'last_set': SessionExercise.get_last(request.user, exercise_id),
