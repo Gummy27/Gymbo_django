@@ -55,25 +55,20 @@ class Equipment(models.Model):
 class Muscle(models.Model):
     name = models.CharField(max_length=100)
 
+    def __str__(self):
+        return self.name
+
 
 class Exercise(models.Model):
     name = models.CharField(max_length=100)
     force = models.ForeignKey(Force, on_delete=models.CASCADE, null=True, blank=True)
     equipment = models.ForeignKey(Equipment, on_delete=models.CASCADE, null=True, blank=True)
+    primary_muscle = models.ForeignKey(Muscle, on_delete=models.CASCADE, null=True, blank=True, related_name='primary_muscle')
+    secondary_muscles = models.ManyToManyField(Muscle, related_name='secondary_muscle')
 
     def get_secondary_muscles(self):
-        joiner = ExerciseMuscle.objects.filter(exercise_id__exact=self.id)
-        print(joiner)
-
-    @classmethod
-    def get_primary_muscle(cls):
-        pass
-
-
-class ExerciseMuscle(models.Model):
-    primary = models.BooleanField(default=False)
-    exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE)
-    muscle = models.ForeignKey(Muscle, on_delete=models.CASCADE)
+        print(self.id)
+        print(self.secondary_muscles.all())
 
 
 class SessionExercise(models.Model):

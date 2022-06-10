@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
 
-from .models import Exercise, SessionExercise, Session, ExerciseMuscle, Muscle
+from .models import Exercise, SessionExercise, Session, Muscle
 from .forms import SetForm
 
 

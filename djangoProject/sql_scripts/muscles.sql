@@ -1,0 +1,18 @@
+insert into gymbo_muscle(id, name) values
+(0, 'forearms'),
+(1, 'middle back'),
+(2, 'triceps'),
+(3, 'biceps'),
+(4, 'lower back'),
+(5, 'shoulders'),
+(6, 'abductors'),
+(7, 'adductors'),
+(8, 'hamstrings'),
+(9, 'traps'),
+(10, 'quadriceps'),
+(11, 'chest'),
+(12, 'neck'),
+(13, 'abdominals'),
+(14, 'calves'),
+(15, 'lats'),
+(16, 'glutes');
