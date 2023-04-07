@@ -1,38 +1,34 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block css %}
-    <link href={% static 'css/detailed.css' %} rel="stylesheet">
-{% endblock %}
-
 {% block content %}
     <div class="detailed">
-        <h2 class="detailed-title">{{ exercise.name }}</h2>
-        <div>
+        <h2 class="text-center text-lg">{{ exercise.name }}</h2>
+    <div>
 
 
-        </div>
-        <div class="detailed-max">
-            <p>Besta:</p>
-            <p>{{ pb.repitions }}x{{ pb.weight }}kg</p>
-        </div>
-        <div class="detailed-session">
-            <div class="detailed-session-last">
-                <p>Síðast:</p>
-                {% for set in last_set %}
-                    <p>{{ set.repitions }} x {{ set.weight }} kg</p>
-                {% endfor %}
-            </div>
-            <div class="detailed-session-curr">
-                <p>Núna:</p>
-                {% for set in curr_set %}
-                    <p>{{ set.repitions }} x {{ set.weight }} kg</p>
-                {% endfor %}
-            </div>
-        </div>
-            <a href="{% url 'exercises' %}"><button name="submit" class="gummi-button detailed-button detailed-button-1">Hætta</button></a>
-        <button type="button" class="gummi-button detailed-button detailed-button-2" data-bs-toggle="modal" data-bs-target="#exampleModal"> Bid on product </button>
-        <!-- Modal -->
-        {% include 'gymbo/detailed_modal.html' %}
     </div>
+    <div class="detailed-max flex justify-evenly">
+        <p>Besta:</p>
+        <p>{{ pb.repitions }}x{{ pb.weight }}kg</p>
+    </div>
+    <div class="flex justify-between p-3">
+        <div class="">
+            <p>Síðast:</p>
+            {% for set in last_set %}
+                <p>{{ set.repitions }} x {{ set.weight }} kg</p>
+            {% endfor %}
+        </div>
+        <div class="">
+            <p>Núna:</p>
+            {% for set in curr_set %}
+                <p>{{ set.repitions }} x {{ set.weight }} kg</p>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="flex justify-between p-5">
+        <a href="{% url 'exercises' %}"><button name="submit" class="">Hætta</button></a>
+        <button type="button" class="" data-bs-toggle="modal" data-bs-target="#exampleModal"> Skrá sett </button>
+    </div>
+    {% include 'gymbo/detailed_modal.html' %}
 {% endblock %}

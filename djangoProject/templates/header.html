@@ -1,7 +1,5 @@
 {% load static %}
-<link href={% static 'css/main.css' %}>
-
-<div class="header">
+<div class="relative flex w-full content-center justify-evenly items-center py-2 bg-yellow-300  md:flex-wrap">
     <div>
         {% if user.is_authenticated %}
             <a href="{% url 'signout' %}"> Sign out </a>

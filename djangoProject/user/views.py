@@ -3,7 +3,7 @@ from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
-
+from time import sleep
 
 # Create your views here.
 def signin(request):
@@ -11,11 +11,15 @@ def signin(request):
         username = request.POST['username']
         password = request.POST['password']
 
+
         user = authenticate(request, username=username, password=password)
 
+        print("It's atleast coming here!")
         if user:
             login(request, user)
             return redirect('home')
+
+        print("It comes through here!")
 
     form = AuthenticationForm()
 
